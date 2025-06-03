@@ -1,0 +1,11 @@
+SELECT
+  year,
+  COUNT(*) AS year_count
+  FROM
+  `bigquery-public-data.austin_crime.crime`
+WHERE
+  description IS NOT NULL 
+GROUP BY
+  year
+ORDER  BY 
+  year_count DESC

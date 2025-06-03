@@ -1,0 +1,27 @@
+WITH seasonal_trends AS (
+  SELECT
+    primary_type,
+    CASE
+      WHEN EXTRACT(MONTH FROM timestamp) IN (3, 4, 5) THEN 'spring'
+      WHEN EXTRACT(MONTH FROM timestamp) IN (6, 7, 8) THEN 'summer'
+      WHEN EXTRACT(MONTH FROM timestamp) IN (9, 10, 11) THEN 'autumn'
+      ELSE 'winter'
+    END AS season,
+    COUNT(*) AS crime_count
+  FROM
+    `bigquery-public-data.austin_crime.crime`
+  WHERE
+    timestamp IS NOT NULL
+  GROUP BY
+    primary_type, season
+)
+
+SELECT
+  season,
+  primary_type,
+  crime_count,
+  ROUND(crime_count * 100.0 / SUM(crime_count) OVER (PARTITION BY season), 2) AS seasonal_percentage
+FROM seasonal_trends
+ORDER BY 
+  season,
+  crime_count DESC;

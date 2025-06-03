@@ -1,0 +1,11 @@
+SELECT
+  council_district_code,
+  COUNT(*) AS crime_locations 
+FROM
+  `bigquery-public-data.austin_crime.crime`
+WHERE
+  council_district_code IS NOT NULL  
+GROUP BY 
+  council_district_code
+ORDER  BY
+  crime_locations DESC
