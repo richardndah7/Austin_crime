@@ -1,0 +1,5 @@
+defaultProject: woven-computing-430723-m6
+defaultLocation: US
+defaultDataset: dataform
+defaultAssertionDataset: dataform_assertions
+dataformCoreVersion: 3.0.0
