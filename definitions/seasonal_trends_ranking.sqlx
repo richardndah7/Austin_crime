@@ -1,25 +1,28 @@
 WITH seasonal_trends AS (
   SELECT
-  primary_type,
-  CASE
-    WHEN EXTRACT(MONTH FROM timestamp) IN (3, 4, 5) THEN 'spring'
-    WHEN EXTRACT(MONTH FROM timestamp) IN (6, 7, 8) THEN 'summer'
-    WHEN EXTRACT(MONTH FROM timestamp) IN (9, 10, 11) THEN 'autumn'
-    ELSE 'winter'
-  END AS season,
-  COUNT(*) AS crime_count
-FROM
-  `bigquery-public-data.austin_crime.crime`
-WHERE
-  timestamp IS NOT NULL
-GROUP BY
-  primary_type, season
-ORDER BY  
-  crime_count DESC )
+    CASE 
+      WHEN primary_type IN ('Agg Assault', 'Aggravated Assault') 
+        THEN 'Aggravated Assault' 
+      ELSE primary_type 
+    END AS primary_type,  
+    CASE
+      WHEN EXTRACT(MONTH FROM timestamp) IN (3, 4, 5) THEN 'spring'
+      WHEN EXTRACT(MONTH FROM timestamp) IN (6, 7, 8) THEN 'summer'
+      WHEN EXTRACT(MONTH FROM timestamp) IN (9, 10, 11) THEN 'autumn'
+      ELSE 'winter'
+    END AS season,
+    COUNT(*) AS crime_count
+  FROM
+    `bigquery-public-data.austin_crime.crime`
+  WHERE
+    timestamp IS NOT NULL
+  GROUP BY
+    primary_type, season  
+)
 SELECT
-    primary_type,
-    season,
-    crime_count,
-    RANK() OVER (PARTITION BY primary_type ORDER BY crime_count DESC) AS season_rank
+  primary_type,
+  season,
+  crime_count,
+  RANK() OVER (PARTITION BY primary_type ORDER BY crime_count DESC) AS season_rank
 FROM seasonal_trends
 ORDER BY primary_type, season_rank;

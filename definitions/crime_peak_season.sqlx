@@ -1,6 +1,10 @@
 WITH seasonal_trends AS (
   SELECT
-    primary_type,
+    CASE 
+      WHEN primary_type IN ('Agg Assault', 'Aggravated Assault') 
+        THEN 'Aggravated Assault' 
+      ELSE primary_type 
+    END AS primary_type, 
     CASE
       WHEN EXTRACT(MONTH FROM timestamp) IN (3, 4, 5) THEN 'spring'
       WHEN EXTRACT(MONTH FROM timestamp) IN (6, 7, 8) THEN 'summer'
@@ -30,3 +34,4 @@ SELECT
 FROM ranked_crimes
 WHERE rnk = 1
 ORDER BY primary_type;
+  
