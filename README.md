@@ -1,8 +1,8 @@
-# Austin_crime
+# The Austin Crime Report
 Analyzing the austin crime dataset by Richard Ndah
 
-# This dataset was sourced from big query public data on google cloud 
-# Below are results from analysis done on the crime dataset of the city of Austin  
+#### This dataset was sourced from big query public data on google cloud 
+##### Below are results from analysis done on the crime dataset of the city of Austin  
 
 ### The questions I wanted to answer through my SQL queries were:
     1. What are the top five crimes recorded in the city of Austin.
@@ -30,7 +30,7 @@ ORDER  BY
 LIMIT  5
 ```
 Rows |   primary_type                 | crime_count
-------------------------------------------------
+-----|--------------------------------|-------------
    1 | **Theft**                      | 14515
    2 | **Theft: All Other Larceny**   | 13539
    3 | **Theft: BOV**                 | 10545
@@ -38,7 +38,7 @@ Rows |   primary_type                 | crime_count
    5 | **Auto Theft**                 | 6231
 
 **Summary**
- # This data snippet displays the conclusion that theft in its various 
+This data snippet displays the conclusion that theft in its various 
 forms is the overwhelmingly dominant type of crime reported within the city of Austin. 
 The general Theft category is the single most common incident by a very large margin. 
 Among more specific property crimes, burglary was reported more frequently than auto theft. 
@@ -60,22 +60,22 @@ ORDER  BY
   crime_locations DESC
 ```
 
-Rows | council_district_code | crime_locations
-------------------------------------------------
-   1 |                     3 |         18109
-   2 |                     9 |         17662
-   3 |                     4 |         16656
-   4 |                     7 |         13439
-   5 |                     1 |         11900
-   6 |                     2 |         10397
-   7 |                     5 |         10130
-   8 |                     8 |          6226
-   9 |                     6 |          6223
-  10 |                    10 |          5255
+| Rows | council_district_code | crime_locations |
+|------|----------------------|-----------------|
+| 1    | 3                    | 18109           |
+| 2    | 9                    | 17662           |
+| 3    | 4                    | 16656           |
+| 4    | 7                    | 13439           |
+| 5    | 1                    | 11900           |
+| 6    | 2                    | 10397           |
+| 7    | 5                    | 10130           |
+| 8    | 8                    | 6226            |
+| 9    | 6                    | 6223            |
+| 10   | 10                   | 5255            |
 
 
 **Summary**
- # The analysis shows that crime is not evenly distributed across council districts.
+The analysis shows that crime is not evenly distributed across council districts.
  District 3 is the highest, followed closely by 9 and 4.
  District 10 has the least crime.
  The disparity between the highest and lowest is substantial (over 3 times).
@@ -96,6 +96,7 @@ Patterns
 - The middle group (districts 7, 1, 2, 5) have crime counts in the range of 10,000 to 13,500.
 
 - The bottom three (8, 6, 10) are below 6,500.
+
 
 ## Seasonal trends of the recorded crimes
 
@@ -123,26 +124,27 @@ ORDER  BY
 
 - Theft in general is by far the most common crime, with over 14,000 incidents in summer. 
 
--Most theft subcategories, robbery, assault, and rape reach their highest counts during summer.
+- Most theft subcategories, robbery, assault, and rape reach their highest counts during summer.
 
 - All theft categories show a consistent seasonal pattern: highest in summer, followed by spring, then autumn, and lowest in winter. 
 This makes sense as warmer weather means more people outdoors, creating more opportunities for theft.
 
--Burglary peaks in winter rather than summer. 
+- Burglary peaks in winter rather than summer. 
 This could be because homes are more vulnerable during holidays or due to longer nights. 
 And also,burglary stands out as a major crime type exhibiting the opposite seasonal pattern (Winter high, Summer low) compared to theft.
 
--Auto theft also shows an unusual pattern with higher counts in winter, which might relate to people warming up unattended cars.
+- Auto theft also shows an unusual pattern with higher counts in winter, which might relate to people warming up unattended cars.
 
--Violent crimes like assault and robbery also follow the summer peak pattern, though less dramatically than theft. 
+- Violent crimes like assault and robbery also follow the summer peak pattern, though less dramatically than theft. 
 
--Murder counts are interesting - while "Murder" entries show summer peaks as well.
+- Murder counts are interesting - while "Murder" entries show summer peaks as well.
 
--The rarest crimes like purse snatching and coin machine theft have very low counts (just 1-3 per season).
+- The rarest crimes like purse snatching and coin machine theft have very low counts (just 1-3 per season).
 
 ## Seasonal percentage distribution of the crimes recorded.
 
 ``` sql
+
 SELECT
     primary_type,
     CASE
@@ -276,7 +278,7 @@ WHERE rnk = 1
 ORDER BY primary_type;
 ```
 
-**Summary*
+**Summary**
 1. Violent Crimes Peak in Warmer Months:
 
 Aggravated Assault: Summer peak (1,573 incidents)
@@ -299,7 +301,8 @@ Theft: Auto Parts: Winter peak (65 incidents)
 
 Theft Overall: Summer peak (14,201 incidents - 11% > winter)
 
-## What are the yearly crime rate in the city of Austin
+
+## What are the yearly crime rate in the city of Austin.
 
 ``` sql
 SELECT
@@ -314,13 +317,14 @@ GROUP BY
 ORDER  BY 
   year_count DESC
 ```
- Row  | year        | year_count
- ---------------------------------
-    1 |        2014 |       40640
-    2 |        2015 |       38572
-    3 |        2016 |       37460
+| Row | year | year_count |
+|-----|------|------------|
+| 1   | 2014 | 40640      |
+| 2   | 2015 | 38572      |
+| 3   | 2016 | 37460      |
 
-**Key Take aways**
+      
+### **Key Take aways**
 This information can be used for resource allocation, policing strategies, and further investigation into why these disparities exist (e.g., population density, socio-economic factors, etc.).
 
 The analysis shows that crime is not evenly distributed across council districts.
@@ -345,16 +349,20 @@ The disparity between the highest and lowest is substantial (over 3 times).
 
 - The bottom three (8, 6, 10) are below 6,500.
 
-##**Conclusion:** Austin's crime profile is strongly seasonal, with theft dominating summer months and property crimes (burglary/auto theft) rising in winter. Stakeholders should deploy seasonally-targeted interventions while maintaining year-round focus on violent crimes.
+## **Conclusion:** 
+Austin's crime profile is strongly seasonal, with theft dominating summer months and property crimes (burglary/auto theft) rising in winter. Stakeholders should deploy seasonally-targeted interventions while maintaining year-round focus on violent crimes.
 
-Resource Allocation:
+## **Recommended Solutions**
+Seasonality significantly impacts crime rates, with summer driving violent offenses and winter favoring property crimes. Strategic resource allocation aligned with these patterns can optimize community safety efforts. Further analysis of socioeconomic factors (e.g., holidays, unemployment) is recommended to refine interventions.
+
+**Resource Allocation:**
 Prioritize theft prevention (patrols, public awareness) in summer, especially for high-theft areas like retail zones.
 Increase burglary/auto theft enforcement in winter.
 
 Violent Crime Focus:
 Summer/spring require heightened attention for assaults and robberies. Rape prevention efforts should align with summer trends.
 
-##**Solutions and Strategic Implications:**
+## **Solutions and Strategic Implications:**
 
 **Summer Resource Allocation**
 
@@ -379,10 +387,8 @@ Summer/spring require heightened attention for assaults and robberies. Rape prev
 - Theft (14,201 summer incidents) and Burglary (2,701 winter incidents) offer highest ROI for prevention efforts
 
 
-##**Note:**
+## **Note:**
  
 1. "Burglary" and "Burglary/Breaking & Entering" are tracked separately due to the fact that breaking and entering is a component of burglary, but not all breaking and entering constitutes burglary. AS Breaking and entering is the act of unlawfully entering a structure without permission, while burglary requires that the illegal entry be made with the intent to commit a crime inside, such as theft.
 
-Seasonality significantly impacts crime rates, with summer driving violent offenses and winter favoring property crimes. Strategic resource allocation aligned with these patterns can optimize community safety efforts. Further analysis of socioeconomic factors (e.g., holidays, unemployment) is recommended to refine interventions.
-
-2. Agg Assault and Aggravated Assault are the same and have been merged as values to produce more concise reporting.
+2. Agg Assault and Aggravated Assault are the same crime types and have been merged as values to produce more concise reporting.
