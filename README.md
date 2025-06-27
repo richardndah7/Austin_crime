@@ -119,7 +119,7 @@ GROUP BY
 ORDER  BY  
   crime_count DESC;
 ```
-
+![Seasonal Trends](<viz/seasonal trend viz.png>)
 **Summary**
 
 - Theft in general is by far the most common crime, with over 14,000 incidents in summer. 
@@ -223,6 +223,8 @@ SELECT
 FROM seasonal_trends
 ORDER BY primary_type, season_rank;
 ```
+![Seasonal Ranking](<viz/Austin Crime Seasonal Ranking.png>)
+
 **Summary**
 From the results of this query it is clear that:
 Summer is the peak season for violent crimes (Aggravated Assault, Rape, Robbery) and most theft categories.
@@ -277,7 +279,7 @@ FROM ranked_crimes
 WHERE rnk = 1
 ORDER BY primary_type;
 ```
-
+![Seasonal Crime Peak](<viz/Austin Crinme Peak viz.png>)
 **Summary**
 1. Violent Crimes Peak in Warmer Months:
 
