@@ -1,0 +1,73 @@
+primary_type,season,crime_count
+Theft,summer,14201
+Theft,spring,13818
+Theft,autumn,13503
+Theft,winter,12993
+Theft: All Other Larceny,summer,3595
+Theft: All Other Larceny,spring,3415
+Theft: All Other Larceny,autumn,3380
+Theft: All Other Larceny,winter,3149
+Burglary,winter,2701
+Theft: BOV,spring,2692
+Theft: BOV,summer,2669
+Theft: BOV,autumn,2638
+Burglary,spring,2566
+Theft: BOV,winter,2546
+Burglary,autumn,2542
+Burglary,summer,2289
+Auto Theft,winter,1606
+Auto Theft,spring,1591
+Aggravated Assault,summer,1573
+Aggravated Assault,spring,1563
+"Burglary / 
+Breaking & Entering",spring,1549
+Auto Theft,summer,1532
+Auto Theft,autumn,1502
+Aggravated Assault,autumn,1458
+"Burglary / 
+Breaking & Entering",winter,1424
+Aggravated Assault,winter,1385
+"Burglary / 
+Breaking & Entering",summer,1356
+"Burglary / 
+Breaking & Entering",autumn,1341
+Theft: Shoplifting,summer,1152
+Theft: Shoplifting,autumn,1074
+Theft: Shoplifting,winter,1069
+Theft: Shoplifting,spring,989
+Robbery,summer,748
+Robbery,autumn,748
+Robbery,spring,707
+Robbery,winter,654
+Rape,summer,502
+Rape,spring,492
+Rape,winter,404
+Rape,autumn,403
+Theft: Pocket Picking,summer,135
+Theft: Pocket Picking,spring,112
+Theft: Pocket Picking,winter,102
+Theft: Pocket Picking,autumn,99
+Theft: Auto Parts,winter,65
+Theft: Auto Parts,spring,62
+Theft: from Building,spring,61
+Theft: Auto Parts,summer,58
+Theft: from Building,summer,57
+Theft: from Building,autumn,57
+Theft: Coin Op Machine,summer,51
+Theft: from Building,winter,46
+Theft: Auto Parts,autumn,46
+Theft: Coin Op Machine,winter,46
+Theft: Coin Op Machine,spring,35
+Theft: Coin Op Machine,autumn,21
+Murder,summer,19
+Murder,autumn,16
+Murder,spring,14
+Homicide: Murder & Nonnegligent Manslaughter,autumn,14
+Murder,winter,12
+Homicide: Murder & Nonnegligent Manslaughter,winter,10
+Homicide: Murder & Nonnegligent Manslaughter,summer,6
+Theft: Purse Snatching,spring,3
+Theft: Purse Snatching,autumn,2
+Homicide: Murder & Nonnegligent Manslaughter,spring,2
+Theft: Purse Snatching,winter,1
+Theft: Purse Snatching,summer,1
