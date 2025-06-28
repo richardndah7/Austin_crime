@@ -120,6 +120,7 @@ ORDER  BY
   crime_count DESC;
 ```
 ![Seasonal Trends](<viz/seasonal trend viz.png>)
+
 **Summary**
 
 - Theft in general is by far the most common crime, with over 14,000 incidents in summer. 
